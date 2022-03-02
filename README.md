@@ -3,13 +3,14 @@
 Automatic primer design from genome graphs.
 
 
-### Install "panprimer" library
+### Install "panprimer" library and dependencies
 
 
 ```bash
+conda create -y -n panprimer -c bioconda python=3.8 sourmash nextflow networkx tqdm gffutils numpy primer3-py
+conda activate panprimer
 git clone github.com/phiweger/panprimer
 cd panprimer && pip install -e .
-pytest
 ```
 
 
@@ -19,6 +20,8 @@ We either have a folder with genomes against ALL of which we want to find primer
 
 
 ```bash
+# Activate docker daemon
+# ... continued from above
 cd workflow
 
 nextflow run main.nf \
